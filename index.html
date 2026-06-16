@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Для моей любимой ❤️</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <h1>Привет, любимая! <span class="heart">❤️</span></h1>
+        <p class="tag">Наше тёплое место — фото, письма и квесты</p>
+      </div>
+      <nav class="nav">
+        <button data-target="home" class="nav-btn active">Главная</button>
+        <button data-target="gallery" class="nav-btn">Открытки</button>
+        <button data-target="letters" class="nav-btn">Тексты</button>
+        <button data-target="quest" class="nav-btn">Квест</button>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="home" class="page active">
+        <div class="cards">
+          <article class="card" onclick="openSection('gallery')">
+            <div class="icon">🖼️</div>
+            <h3>Наши открытки</h3>
+            <p>Листай фото и сохраняй тёплые моменты.</p>
+          </article>
+          <article class="card" onclick="openSection('letters')">
+            <div class="icon">💌</div>
+            <h3>Наши тексты</h3>
+            <p>Письма, поздравления и милые признания.</p>
+          </article>
+          <article class="card" onclick="openSection('quest')">
+            <div class="icon">🎁</div>
+            <h3>Твой квест</h3>
+            <p>Небольшие игры и сюрпризы для тебя.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="gallery" class="page">
+        <button class="back" onclick="openSection('home')">← В меню</button>
+        <h2>Наши воспоминания</h2>
+        <div class="gallery">
+          <img src="https://i.postimg.cc/J4tNMyrx/5226521466461950225.jpg" alt="" onclick="preview(this.src)">
+          <img src="https://i.postimg.cc/VNT696Qs/6087173388628594624.jpg" alt="" onclick="preview(this.src)">
+          <img src="https://i.postimg.cc/MHYqLZ4Q/5382280349531967200.jpg" alt="" onclick="preview(this.src)">
+          <img src="https://i.postimg.cc/zfWmMXbS/5474129427747771299.jpg" alt="" onclick="preview(this.src)">
+          <img src="https://i.postimg.cc/GtfqdG6x/6183626993904502763.jpg" alt="" onclick="preview(this.src)">
+        </div>
+      </section>
+
+      <section id="letters" class="page">
+        <button class="back" onclick="openSection('home')">← В меню</button>
+        <h2>Слова для тебя</h2>
+        <div class="accordion">
+          <div class="item">
+            <button class="heading" onclick="toggleAcc(this)">Поздравление с Новым Годом 🎄</button>
+            <div class="panel">
+              <p>С НОВЫМ ГОДОМ, ЛЮБИМЫЙ!!!🎆🎆\nпоздравляю с наступившим 2026 годом! пусть в этом году сбудутся все твои мечты...</p>
+            </div>
+          </div>
+          <div class="item">
+            <button class="heading" onclick="toggleAcc(this)">С 14 Февраля 💘</button>
+            <div class="panel"><p>С Днем Святого Валентина, родной! 💘💓😇\nты мой самый близкий...</p></div>
+          </div>
+          <div class="item">
+            <button class="heading" onclick="toggleAcc(this)">Просто так 🌸</button>
+            <div class="panel"><p>Юлечка, пишу тебе это 26.10.2025 в 18:46... (полный текст сохранён)</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quest" class="page">
+        <button class="back" onclick="openSection('home')">← В меню</button>
+        <h2>Твой квест</h2>
+        <div class="quest">
+          <div id="qstep1" class="qstep active">
+            <label>Введите пароль:</label>
+            <div class="row"><input id="pass" placeholder="Пароль..." autocomplete="off"><button onclick="checkPass()">Проверить</button></div>
+            <p id="passErr" class="muted hidden">Неверный пароль</p>
+          </div>
+          <div id="qstep2" class="qstep">
+            <p>Собери пазл (тапни по двум клеткам для обмена)</p>
+            <div id="puzzle1" class="puzzle"></div>
+            <button id="p1next" class="action hidden" onclick="nextQ(3)">Продолжить</button>
+          </div>
+          <div id="qfinal" class="qstep">
+            <h3>Финал 🎉</h3>
+            <p>Забирай подарок:</p>
+            <a class="qr" href="https://t.me/dere12333" target="_blank">Открыть подарок</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+      <img id="modalImg" src="" alt="" onclick="event.stopPropagation()">
+      <button class="modalClose" onclick="closeModal()">×</button>
+    </div>
+
+    <footer class="footer">
+      <small>© Сделано с любовью</small>
+    </footer>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
